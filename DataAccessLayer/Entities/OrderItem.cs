@@ -1,0 +1,29 @@
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DataAccessLayer.Entities
+{
+    public class OrderItem
+    {
+        [BsonId]
+        public Guid _id { get; set; }
+
+        [BsonRepresentation(BsonType.String)]
+        public Guid ProductID { get; set; }
+
+        [BsonRepresentation(BsonType.Int32)]
+        public int Quantity { get; set; }
+
+        [BsonRepresentation(BsonType.Double)]
+        public decimal UnitPrice
+        {
+            get; set;
+        }
+
+        [BsonRepresentation(BsonType.Double)]
+        public decimal TotalPrice { get; set; }
+    }
+}
