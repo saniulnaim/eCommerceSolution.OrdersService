@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BusinessLogicLayer.DTO
 {
-   public record OrderAddRequest(Guid userID, DateTime OrderDate, List<OrderItemAddRequest> ordersItems)
+   public record OrderAddRequest(Guid UserID, DateTime OrderDate, List<OrderItemAddRequest> OrderItems)
     {
         public OrderAddRequest() : this(default, default, default)
         {

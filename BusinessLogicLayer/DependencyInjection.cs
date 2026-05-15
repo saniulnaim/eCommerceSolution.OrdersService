@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BusinessLogicLayer.Mappers;
+using BusinessLogicLayer.Validators;
+using FluentValidation;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +12,10 @@ namespace BusinessLogicLayer
     {
         public static IServiceCollection AddBusinessLogicLayer(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddValidatorsFromAssemblyContaining<OrderItemUpdateRequestValidator>();
+
+            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(OrderAddRequestToOrderMappingProfile).Assembly));
+
             return services;
         }   
     }
