@@ -75,7 +75,7 @@ namespace OrdersMicroservice.API.ApiControllers
             return Created($"/api/orders/search/orderid/{orderResponse?.OrderID}", orderResponse);
         }
 
-        [HttpPut("{orderID")]
+        [HttpPut("{orderID}")]
         public async Task<IActionResult> Put(Guid orderID, OrderUpdateRequest orderUpdateRequest)
         {
             if (orderUpdateRequest == null)

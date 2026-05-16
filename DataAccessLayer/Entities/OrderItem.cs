@@ -9,6 +9,7 @@ namespace DataAccessLayer.Entities
     public class OrderItem
     {
         [BsonId]
+        [BsonRepresentation(BsonType.String)]
         public Guid _id { get; set; }
 
         [BsonRepresentation(BsonType.String)]

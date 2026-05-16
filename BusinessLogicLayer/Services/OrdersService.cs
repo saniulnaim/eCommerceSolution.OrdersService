@@ -3,6 +3,7 @@ using BusinessLogicLayer.DTO;
 using BusinessLogicLayer.ServiceContracts;
 using DataAccessLayer.Entities;
 using DataAccessLayer.Repositories;
+using DataAccessLayer.RepositoryContracts;
 using FluentValidation;
 using FluentValidation.Results;
 using MongoDB.Driver;
@@ -19,10 +20,10 @@ namespace BusinessLogicLayer.Services
         private readonly IValidator<OrderItemAddRequest> _orderItemAddRequestValidator;
         private readonly IValidator<OrderUpdateRequest> _orderUpdateRequestValidator;
         readonly IValidator<OrderItemUpdateRequest> _orderItemUpdateRequestValidator;
-        private readonly OrderRepository _orderRepository;
+        private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
 
-        public OrdersService(OrderRepository orderRepository, IMapper mapper, IValidator<OrderAddRequest> orderAddRequestValidator, IValidator<OrderItemAddRequest> orderItemAddRequestValidator, 
+        public OrdersService(IOrderRepository orderRepository, IMapper mapper, IValidator<OrderAddRequest> orderAddRequestValidator, IValidator<OrderItemAddRequest> orderItemAddRequestValidator, 
             IValidator<OrderUpdateRequest> orderUpdateRequestValidator, IValidator<OrderItemUpdateRequest> orderItemUpdateRequestValidator)
         {
             _orderRepository = orderRepository;

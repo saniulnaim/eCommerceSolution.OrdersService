@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccessLayer.RepositoryContracts
 {
-    internal interface IOrderRepository
+    public interface IOrderRepository
     {
         Task<IEnumerable<Order?>> GetOrders();
 

@@ -22,6 +22,12 @@ namespace DataAccessLayer.Repositories
         public async Task<Order?> AddOrder(Order order)
         {
             order.OrderID = Guid.NewGuid();
+            order._id = order.OrderID;
+
+            foreach (var item in order.OrderItems)
+            {
+                item._id = Guid.NewGuid();
+            }
 
             await _ordersCollection.InsertOneAsync(order);
             return order;
@@ -65,6 +71,7 @@ namespace DataAccessLayer.Repositories
             {
                 return null;
             }
+            order._id = existingOrder.OrderID;
 
             ReplaceOneResult replaceOneResult = await _ordersCollection.ReplaceOneAsync(filter, order);
             return order;
