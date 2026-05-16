@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using BusinessLogicLayer.DTO;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Text;

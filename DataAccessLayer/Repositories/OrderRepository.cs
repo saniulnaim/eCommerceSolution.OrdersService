@@ -27,9 +27,9 @@ namespace DataAccessLayer.Repositories
             return order;
         }
 
-        public async Task<bool> DeleteOrder(Order order)
+        public async Task<bool> DeleteOrder(Guid orderID)
         {
-            FilterDefinition<Order> filter = Builders<Order>.Filter.Eq(o => o.OrderID, order.OrderID);
+            FilterDefinition<Order> filter = Builders<Order>.Filter.Eq(o => o.OrderID, orderID);
 
             Order? existingOrder = (await _ordersCollection.FindAsync(filter)).FirstOrDefault();
             if (existingOrder == null)

@@ -1,4 +1,6 @@
 ﻿using BusinessLogicLayer.Mappers;
+using BusinessLogicLayer.ServiceContracts;
+using BusinessLogicLayer.Services;
 using BusinessLogicLayer.Validators;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +17,8 @@ namespace BusinessLogicLayer
             services.AddValidatorsFromAssemblyContaining<OrderItemUpdateRequestValidator>();
 
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(OrderAddRequestToOrderMappingProfile).Assembly));
+
+            services.AddScoped<IOrdersService, OrdersService>();
 
             return services;
         }   

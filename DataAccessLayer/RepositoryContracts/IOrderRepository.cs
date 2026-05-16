@@ -18,7 +18,7 @@ namespace DataAccessLayer.RepositoryContracts
 
         Task<Order?> UpdateOrder(Order order);
 
-        Task<bool> DeleteOrder(Order order);
+        Task<bool> DeleteOrder(Guid orderID);
 
     }
 }

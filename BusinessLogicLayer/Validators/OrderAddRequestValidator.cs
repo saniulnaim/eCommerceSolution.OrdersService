@@ -10,9 +10,9 @@ namespace BusinessLogicLayer.Validators
     {
         public OrderAddRequestValidator()
         {
-            RuleFor(x => x.userID).NotEmpty().WithMessage("User ID is required.");
+            RuleFor(x => x.UserID).NotEmpty().WithMessage("User ID is required.");
             RuleFor(x => x.OrderDate).NotEmpty().WithMessage("Order Date is required.");
-            RuleFor(x => x.ordersItems).NotEmpty().WithMessage("Order items are required.");
+            RuleFor(x => x.OrderItems).NotEmpty().WithMessage("Order items are required.");
         }
     }
 }
